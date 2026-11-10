@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b0a">
+  <title>Spotify Lite</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">≋</span><span>spotify<span class="lite">lite</span></span></div>
+      <nav>
+        <a class="nav-item active" href="#home"><span>⌂</span> Home</a>
+        <a class="nav-item" href="#player"><span>♫</span> Player</a>
+      </nav>
+      <div class="sidebar-note"><div class="note-icon">♫</div><p>Minimal interface.<br>Music you love.</p></div>
+      <div class="sidebar-footer">COMMUNITY PROJECT</div>
+    </aside>
+    <main id="home" class="main">
+      <header class="topbar">
+        <div><span class="eyebrow">YOUR MUSIC, SIMPLIFIED</span><h1>Good evening<span class="green">.</span></h1></div>
+        <button class="ghost" id="openSpotify">Open Spotify ↗</button>
+      </header>
+      <section class="search-card">
+        <div class="search-icon">⌕</div>
+        <div class="search-content">
+          <label for="search">Find your next favorite</label>
+          <div class="search-row"><input id="search" type="search" placeholder="Search tracks, artists, albums..."><button id="searchBtn">Search ↗</button></div>
+          <p class="hint">Search on Spotify. This app does not store your login credentials.</p>
+        </div>
+      </section>
+      <section class="player-section" id="player">
+        <div class="section-heading"><div><span class="eyebrow">SPOTIFY EMBED</span><h2>Listen here</h2></div><span class="pill"><i></i> Ready</span></div>
+        <div class="player-card">
+          <div class="player-copy"><div class="cover-placeholder">♫</div><div><h3>Bring your Spotify link</h3><p>Paste a track, album, playlist or podcast URL.</p></div></div>
+          <div class="link-row"><input id="spotifyUrl" type="url" placeholder="https://open.spotify.com/track/…"><button id="loadBtn">Load player</button></div>
+          <p class="hint">Playback is provided by Spotify’s official embedded player.</p>
+          <div id="embedWrap" class="embed-wrap hidden"><iframe id="spotifyEmbed" title="Spotify embedded player" src="" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+          <div id="message" class="message" role="status"></div>
+        </div>
+      </section>
+      <footer>Made for the community <span>•</span> Not affiliated with Spotify</footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

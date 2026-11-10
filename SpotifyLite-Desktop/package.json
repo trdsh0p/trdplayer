@@ -1,0 +1,29 @@
+{
+  "name": "spotify-lite-desktop",
+  "version": "1.0.0",
+  "description": "Lightweight community Spotify desktop companion",
+  "main": "main.js",
+  "author": "Community",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^35.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "dev.community.spotifylite",
+    "productName": "Spotify Lite",
+    "directories": { "output": "dist" },
+    "files": ["main.js", "preload.js", "index.html", "style.css", "script.js", "package.json"],
+    "win": { "target": ["nsis"], "artifactName": "Spotify-Lite-Setup-${version}.${ext}" },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
