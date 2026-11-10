@@ -1,5 +1,5 @@
 
-name: Build Windows Installer
+name: Build Tried Player for Windows
 
 on:
   workflow_dispatch:
@@ -7,28 +7,32 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   build:
+    name: Build Windows Installer
     runs-on: windows-latest
 
     steps:
-      - name: Checkout repository
+      - name: Download repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build EXE
+      - name: Build EXE installer
         run: npm run dist
 
-      - name: Upload installer
+      - name: Upload EXE
         uses: actions/upload-artifact@v4
         with:
           name: Tried-Player-Windows-Installer
           path: dist/*.exe
+          if-no-files-found: error
