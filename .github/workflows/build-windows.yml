@@ -15,8 +15,12 @@ jobs:
     name: Build Windows Installer
     runs-on: windows-latest
 
+    defaults:
+      run:
+        working-directory: SpotifyLite-Desktop
+
     steps:
-      - name: Download repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Install Node.js
@@ -27,12 +31,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build EXE installer
+      - name: Build EXE
         run: npm run dist
 
-      - name: Upload EXE
+      - name: Upload installer
         uses: actions/upload-artifact@v4
         with:
           name: Tried-Player-Windows-Installer
-          path: dist/*.exe
+          path: SpotifyLite-Desktop/dist/*.exe
           if-no-files-found: error
